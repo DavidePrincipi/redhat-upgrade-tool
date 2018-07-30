@@ -5,12 +5,10 @@ Summary:        The Red Hat Enterprise Linux Upgrade tool
 Epoch:          1
 
 License:        GPLv2+
-URL:            https://github.com/upgrades-migrations/redhat-upgrade-tool
-Source0:        %{url}/archive/%{name}-%{version}.tar.gz
+URL:            %{url_prefix}/%{name}
+Source0:        %{name}-%{version}.tar.gz
 
 Requires:       grubby
-Requires:       python-rhsm
-Requires:       preupgrade-assistant >= 2.2.0-1
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1038299
 Requires:       yum >= 3.2.29-43
