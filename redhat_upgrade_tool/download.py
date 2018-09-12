@@ -115,7 +115,6 @@ class UpgradeDownloader(yum.YumBase):
         conf = yum.YumBase._getConfig(self)
         if firstrun:
             # override some of yum's defaults
-            conf.disable_excludes = ['all']
             conf.cache = self.cacheonly
             conf.deltarpm = 0
             log.debug("conf.cache=%i", conf.cache)
@@ -228,6 +227,8 @@ class UpgradeDownloader(yum.YumBase):
                     f.write("enabled=1\n")
                     f.write("skip_if_unavailable=True\n")
                     f.write("sslverify=%s\n" % repo.sslverify)
+                    if repo.exclude:
+                        f.write("exclude=%s\n" % ','.join(repo.exclude))
                     if repo.gpgcheck:
                         f.write("gpgcheck=1\n")
                     else:
