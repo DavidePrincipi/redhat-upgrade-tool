@@ -1,6 +1,6 @@
 Name:           redhat-upgrade-tool
 Version:        0.7.52
-Release:        1%{?dist}
+Release:        1.2%{?dist}
 Summary:        The Red Hat Enterprise Linux Upgrade tool
 Epoch:          1
 
@@ -71,6 +71,10 @@ mkdir -p $RPM_BUILD_ROOT/etc/redhat-upgrade-tool/update.img.d
 #{_datadir}/redhat-upgrade-tool/ui
 
 %changelog
+* Thu Oct 25 2018 Davide Principi <davide.principi@nethesis.it> - 1:0.7.52-1.2
+- Preserve YUM exclude= parameters
+- Drop RPM dependencies
+
 * Tue Jun 12 2018 Michal Bocek <mbocek@redhat.com> - 1:0.7.52-1
 - Add option to disable /boot size check
   Resolves: rhbz#1518317
